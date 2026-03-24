@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1> Plantilla projecte</h1>
+    <a href="{% url 'form' %}"> Crear nou usuari</a>
+    <a href="{% url 'get_all_users' %}"> Tots els usuaris </a>
+    <!-- Introduce block content -->
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

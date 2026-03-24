@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h1> CONFIRMACIÓ ELIMINACIÓ USER</h1>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <p>Segur que vols eliminar a {{user.f_name}}?</p>
+        <button><a href="{% url 'get_all_users' %}"> Tornar </a></button>
+        <input type="submit" value="CONFIRM">
+    </form>
+{% endblock %}

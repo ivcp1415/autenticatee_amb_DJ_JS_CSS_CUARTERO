@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<h2> Es mostra llistat d'usuari segons id </h2>
+<ul>
+    <li><b> id </b>: {{ user.id }}</li>
+    <li><b> name </b> : {{user.f_name}}</li>
+    <li><b> lastname </b> : {{user.l_name}}</li>
+    <li><b> email </b>: {{user.email}}</li>
+    <li><b> age </b>: {{user.age}} </li>
+    <li><b> rol </b>: {{user.rol}}</li>
+    <p><a href="{% url 'update_user' user.id %}"> Editar </a></p>
+    <p><a href="{% url 'delete_user' user.id%}"> Esborrar </a></p>
+
+</ul>
+<p><a href="{% url 'get_all_users' %}"> Tornar </a></p>
+
+{% endblock %}

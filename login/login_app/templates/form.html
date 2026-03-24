@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<h1> FORMULARI D'USER</h1>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit">
+</form>
+{% endblock %}
