@@ -1,26 +1,34 @@
 {% extends 'index.html' %}
+
 {% block content %}
-<div>
-    <h2>Inici de sessió</h2>
+<div class="login-page-wrapper">
+    <div class="card login-card">
+        <header class="login-header">
+            <h2>Inici de sessió</h2>
+            <p class="subtitle">Benvingut de nou, introdueix les teves credencials</p>
+        </header>
 
-    <form id="userLogin" action="{% url 'login' %}" method="POST" novalidate>
-        {% csrf_token %}
-        <div>
-            <label for="first">Email:</label>
-            <input type="email" id="first" name="email"
-                placeholder="Aquí va el teu mail d'usuari" required>
-            <span id="id_email-error" style="color: red; display: block; font-size: 0.8em;"></span>
-        </div>
+        <form id="userLogin" action="{% url 'login' %}" method="POST" novalidate>
+            {% csrf_token %}
 
-        <div>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password"
-                placeholder="Introdueix la teva contrasenya" required>
-            <span id="id_password-error" style="color: red; display: block; font-size: 0.8em;"></span>
-        </div>
+            <div class="form-group">
+                <label for="first">Email</label>
+                <input type="email" id="first" name="email"
+                    placeholder="nom@exemple.cat" required autofocus>
+                <span id="id_email-error" class="error-text"></span>
+            </div>
 
-        <button type="submit" class="btn btn-primary" style="margin-bottom 1rem"> Iniciar sessió </button>
-        <a href=""> No t'has enregistrat encara? </a>
-    </form>
+            <div class="form-group">
+                <label for="password">Contrasenya</label>
+                <input type="password" id="password" name="password"
+                    placeholder="La teva contrasenya" required>
+                <span id="id_password-error" class="error-text"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">
+                Iniciar sessió
+            </button>
+        </form>
+    </div>
 </div>
 {% endblock %}

@@ -112,3 +112,103 @@ input[type="text"], input[type="email"], input[type="password"], select {
 .skip-link:focus {
     top: 0; /* Apareix quan l'usuari prem Tab */
 }
+
+/* --- Contenidor de la pàgina de Login --- */
+.login-page-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 4rem;
+    min-height: 70vh;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 2.5rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-header h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: #2c3e50;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-top: 0.5rem;
+}
+
+/* --- Grups de formulari --- */
+.form-group {
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: #34495e;
+}
+
+/* --- Millora dels Inputs --- */
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #dcdde1;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* --- Botó Principal --- */
+.btn-block {
+    width: 100%;
+    padding: 0.9rem;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+/* --- Footer del formulari --- */
+.form-footer {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.secondary-link {
+    font-size: 0.9rem;
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.secondary-link:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* --- Errors --- */
+.error-text {
+    min-height: 1.2rem;
+    font-size: 0.8rem;
+    color: #e74c3c;
+    margin-top: 0.25rem;
+}
