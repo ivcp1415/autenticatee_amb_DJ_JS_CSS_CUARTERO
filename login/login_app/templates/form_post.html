@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<h1> FORMULARI D'USER</h1>
+
+<form id="userPost" method="POST" novalidate>
+    {% csrf_token %}
+    {% for field in form %}
+        <div class="form-group">
+            {% if field.name == 'dni' %}
+                <label for="docType">Tipus de document:</label><br>
+                <select id="docType" style="margin-bottom: 10px;">
+                    <option value="DNI">DNI</option>
+                    <option value="NIE">NIE</option>
+                    <option value="Passport">Passaport</option>
+                </select><br>
+            {% endif %}
+
+            {{ field.label_tag}} <br>
+            {{ field }}
+            <span id="{{ field.id_for_label }}-error" class="error-text" style="color: red; display: block; font-size: 0.8em;"></span>
+        </div>
+    {% endfor %}
+    <button type="submit">Create</button>
+</form>
+
+<p><a href="{% url 'admins_view' %}">Tornar al llistat</a></p>
+
+{% endblock %}

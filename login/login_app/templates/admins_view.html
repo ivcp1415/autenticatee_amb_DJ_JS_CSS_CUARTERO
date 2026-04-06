@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<div class="card">
+    <a href="{% url 'form_post' %}" class="btn btn-primary" style="margin-bottom 1rem"> Crear nou usuari</a>
+    <h2> User List </h2>
+    <ul class="list-container">
+        {% for user in users %}
+        <li class="list-item">
+            <div class="list-item-info">
+                <b>ID:</b> {{ user.id }} | <b>Nom:</b> {{ user.nom }}
+            </div>
+            <a href="{% url 'user' user.id %}" class="btn btn-outline">Més info</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

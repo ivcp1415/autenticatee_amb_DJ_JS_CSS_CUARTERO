@@ -55,7 +55,7 @@ ROOT_URLCONF = 'login.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -112,11 +112,18 @@ LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
+USE_L10N = False
 
-USE_TZ = True
-
+# 2. Defineix explícitament els formats d'entrada que acceptarà Django
+DATE_INPUT_FORMATS = [
+    '%d/%m/%Y' # El format que demana el teu exercici (05/04/2026)
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]

@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="card visitor-container">
+    <div class="visitor-icon">
+        <!-- Una icona visual ajuda a entendre que és una zona informativa -->
+        <span>&#128274;</span>
+    </div>
+
+    <h2>Àrea de Visitant</h2>
+
+    <div class="visitor-message">
+        <p>Actualment no tens permisos per accedir a les llistes privades.</p>
+        <p><b>Has de contactar amb el teu administrador</b> per a obtenir les credencials d'accés (Usuari i Contrasenya).</p>
+    </div>
+
+    <hr>
+
+    <div class="visitor-actions">
+        <a href="{% url 'log_page' %}" class="btn btn-primary">Anar al Login</a>
+    </div>
+</div>
+{% endblock %}

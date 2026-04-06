@@ -1,18 +1,71 @@
 {% extends 'index.html' %}
 
 {% block content %}
-<h2> Es mostra llistat d'usuari segons id </h2>
-<ul>
-    <li><b> id </b>: {{ user.id }}</li>
-    <li><b> name </b> : {{user.f_name}}</li>
-    <li><b> lastname </b> : {{user.l_name}}</li>
-    <li><b> email </b>: {{user.email}}</li>
-    <li><b> age </b>: {{user.age}} </li>
-    <li><b> rol </b>: {{user.rol}}</li>
-    <p><a href="{% url 'update_user' user.id %}"> Editar </a></p>
-    <p><a href="{% url 'delete_user' user.id%}"> Esborrar </a></p>
+<div class="card">
+    <header class="main-header" style="border-bottom: none; margin-bottom: 0;">
+        <h2>Gestió de l'Usuari: {{ user.nom }}</h2>
+    </header>
 
-</ul>
-<p><a href="{% url 'get_all_users' %}"> Tornar </a></p>
+    <!-- Taula de dades per a una visualització professional -->
+    <table class="detail-table">
+        <tr>
+            <td>ID de l'usuari:</td>
+            <td><code>{{ user.id }}</code></td>
+        </tr>
+        <tr>
+            <td>Nom complet:</td>
+            <td>{{ user.nom }}</td>
+        </tr>
+        <tr>
+            <td>Correu electrònic:</td>
+            <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
+        </tr>
+        <tr>
+            <td>Rol del sistema:</td>
+            <td><span class="badge" style="background: #e9ecef; padding: 4px 10px; border-radius: 4px; font-weight: bold;">{{ user.rol }}</span></td>
+        </tr>
+        <tr>
+            <td>Data de naixement:</td>
+            <td>{{ user.data_naixement|date:"d/m/Y" }}</td>
+        </tr>
+        <tr>
+            <td>Telèfon:</td>
+            <td>{{ user.tlf }}</td>
+        </tr>
+        <tr>
+            <td>Document (DNI/NIE):</td>
+            <td>{{ user.dni|upper }}</td>
+        </tr>
+        <tr>
+            <td>Codi Postal:</td>
+            <td>{{ user.codi }}</td>
+        </tr>
+        <tr>
+            <td>Data de registre:</td>
+            <td>{{ user.created_at|date:"d/m/Y H:i" }}</td>
+        </tr>
+        <tr>
+            <td>Última modificació:</td>
+            <td>{{ user.updated_at|date:"d/m/Y H:i" }}</td>
+        </tr>
+    </table>
 
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 2rem 0;">
+
+    <!-- Botonera d'accions d'administrador -->
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+        <div style="display: flex; gap: 10px;">
+            <a href="{% url 'update_user' user.id %}" class="btn btn-primary">
+                Editar dades
+            </a>
+            <a href="{% url 'delete_user' user.id %}" class="btn btn-danger">
+                Esborrar usuari
+            </a>
+        </div>
+
+        <a href="{% url 'admins_view' %}" class="btn btn-outline">
+            Tornar al llistat complet
+        </a>
+    </div>
+</div>
 {% endblock %}

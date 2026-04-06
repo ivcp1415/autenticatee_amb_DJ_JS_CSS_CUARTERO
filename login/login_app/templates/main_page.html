@@ -1,14 +1,16 @@
 {% extends 'index.html' %}
 
 {% block content %}
-<h2> User List </h2>
-<ul>
-    {% for user in users %}
-    <li> id: {{ user.id }}</li>
-    <li> name: {{user.f_name}}</li>
-    <li><a href="{% url 'user' user.id %}"> Més info </a></li>
-    </br>
-    {% endfor %}
-</ul>
+<div class="card">
+    <h2> User List </h2>
+    <ul class="list-container">
+        {% for user in users %}
+        <li> id: {{ user.id }}</li>
+        <li> name: {{user.f_name}}</li>
+        <li><a href="{% url 'user' user.id %}"> Més info </a></li>
+        </br>
+        {% endfor %}
+    </ul>
+</div>
 
 {% endblock %}

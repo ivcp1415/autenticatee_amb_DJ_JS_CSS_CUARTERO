@@ -1,12 +1,13 @@
 {% extends 'index.html' %}
 
 {% block content %}
-    <h1> CONFIRMACIÓ ELIMINACIÓ USER</h1>
-
+<div class="card" style="text-align: center; border-top: 5px solid #e74c3c;">
+    <h1>CONFIRMACIÓ ELIMINACIÓ</h1>
+    <p>Segur que vols eliminar a <b>{{user.nom}}</b>?</p>
     <form action="" method="POST">
         {% csrf_token %}
-        <p>Segur que vols eliminar a {{user.f_name}}?</p>
-        <button><a href="{% url 'get_all_users' %}"> Tornar </a></button>
-        <input type="submit" value="CONFIRM">
+        <button type="submit" class="btn btn-danger">CONFIRMAR ELIMINACIÓ</button>
+        <a href="{% url 'get_all_users' %}" class="btn btn-outline">Cancel·lar</a>
     </form>
+</div>
 {% endblock %}

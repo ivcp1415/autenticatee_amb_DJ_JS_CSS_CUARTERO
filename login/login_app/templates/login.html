@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+{% block content %}
+<div>
+    <h2>Inici de sessió</h2>
+
+    <form id="userLogin" action="{% url 'login' %}" method="POST" novalidate>
+        {% csrf_token %}
+        <div>
+            <label for="first">Email:</label>
+            <input type="email" id="first" name="email"
+                placeholder="Aquí va el teu mail d'usuari" required>
+            <span id="id_email-error" style="color: red; display: block; font-size: 0.8em;"></span>
+        </div>
+
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password"
+                placeholder="Introdueix la teva contrasenya" required>
+            <span id="id_password-error" style="color: red; display: block; font-size: 0.8em;"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="margin-bottom 1rem"> Iniciar sessió </button>
+        <a href=""> No t'has enregistrat encara? </a>
+    </form>
+</div>
+{% endblock %}

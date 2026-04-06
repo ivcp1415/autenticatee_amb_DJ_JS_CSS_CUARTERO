@@ -1,15 +1,41 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
-    <h1> Plantilla projecte</h1>
-    <a href="{% url 'form' %}"> Crear nou usuari</a>
-    <a href="{% url 'get_all_users' %}"> Tots els usuaris </a>
-    <!-- Introduce block content -->
-    {% block content %}
-    {% endblock %}
+    <a href="#main-content" class="skip-link">Saltar al contingut principal (tab)</a>
+    <nav class="navbar">
+        <div class="nav-container">
+            <span class="nav-logo">Projecte Django</span>
+            <p class="nav-text">Sessió iniciada</p>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="main-header">
+            <h1> Plantilla projecte</h1>
+            <a href="{% url 'log_page' %}" class="btn-logout"> Tancar sessió </a>
+        </header>
+        <!-- Introduce block content -->
+
+        <section id="main-content" class="content" tabindex="-1">
+            {% block content %}
+            {% endblock %}
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>Ivan Cuartero Pérez</h3>
+            <p> &copy; 2026 - Desenvolupament d'Aplicacions Web </p>
+        </div>
+    </footer>
+
+    <script src="{% static 'script.js' %}"></script>
 </body>
 </html>
